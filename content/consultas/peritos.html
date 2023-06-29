@@ -4,14 +4,14 @@
     <title>Peritos</title>
     <meta name="slug" content="consultas-peritos" />
     <meta name="summary" content="" />
-    <meta name="javascripts" content="consultas-api-url.js,consultas-peritos.js,consultas-distritos-autoridades.js" />
+    <meta name="javascripts" content="consultas-api-url.js,consultas-distritos.js,consultas-peritos.js" />
     <meta name="save_as" content="peritos/index.html" />
   </head>
   <body>
     <!-- Cabecera -->
     <div class="mt-3 mb-3"></div>
-    <p class="mb-2">La lista de Peritos en los términos de la Ley Orgánica del Poder Judicial del Estado.</p>
-    <h2>Instrucciones</h2>
+    <p class="ml-5 mr-5">La lista de Peritos en los términos de la Ley Orgánica del Poder Judicial del Estado.</p>
+    <h2 class="ml-5 mr-5">Instrucciones</h2>
     <ol class="m-5 border-bottom">
       <li value="1">Favor de seleccionar el <b>Distrito Judicial</b> (lista desplegable con los 8 distritos).</li>
       <li>Puede dejar el campo del <b>nombre</b>  vacío para mostrar todos los peritos del distrito. O escribir parte del nombre, preferentemente los apellidos.</li>
@@ -27,16 +27,17 @@
           </div>
         </div>
         <form id="peritosForm" onsubmit="return false;" style="display: none">
+          <!-- Distrito -->
           <div class="row">
-            <div class="col-sm-6">
-              <div id="distritosSpinner" class="text-center">
+            <div class="col-sm-12">
+              <div id="distritoSpinner" class="text-center">
                 <div class="spinner-border" role="status">
                   <span class="sr-only">Cargando...</span>
                 </div>
               </div>
-              <div id="distritosFormGroup" class="form-group" style="display: none">
-                <label for="distritosSelect">Elija el Distrito/Grupo</label>
-                <select id="distritosSelect" name="distritoId" class="form-control" size="20"></select>
+              <div class="form-group">
+                <label for="distritoSelect">Elija el Distrito</label>
+                <select id="distritoSelect" name="distritoClave" class="form-control"></select>
               </div>
             </div>
           </div>
@@ -51,7 +52,15 @@
     <!-- Tabla -->
     <div id="peritosTableCard" class="card m-5" style="display: none">
       <div class="card-header">
-        <h5 id="peritosTableTitle" class="card-title mb-0">Peritos</h5>
+        <h5 id="peritosTableTitle" class="card-title mb-0">Peritos</h5> 
+        <!-- Titulo -->
+        <div class="row">
+          <div class="col-6">
+            <div id="encabezadoDiv">
+              <button id="regresarButton" class="btn btn-warning btn-sm"><i class="fa fa-reply" aria-hidden="true"></i> Regresar</button>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-body">
         <div id="peritosTableSpinner" class="text-center">
@@ -73,8 +82,8 @@
         </table>
       </div>
     </div>
-    <h2>Requisitos para el Registro de Peritos</h2>
-    <ol>
+    <h2 class="ml-5 mr-5">Requisitos para el Registro de Peritos</h2>
+    <ol class="ml-5 mr-5">
       <li value="1">
         Solicitud dirigida al <b>Pleno del Tribunal Superior de Justicia,</b>  en la que se exprese:
         <ul>
@@ -97,8 +106,8 @@
         </ul>
       </li>
     </ol>
-    <h3>Auxiliares prácticos</h3>
-    <p>
+    <h3 class="ml-5 mr-5">Auxiliares prácticos</h3>
+    <p class="ml-5 mr-5">
       Quienes deseen desempeñar el cargo de auxiliares prácticos, 
       además de los requisitos señalados en el punto número 1, señalarán en su solicitud, 
       bajo protesta de decir verdad, las circunstancias por las que se adquirieron conocimientos sobre la ciencia, 

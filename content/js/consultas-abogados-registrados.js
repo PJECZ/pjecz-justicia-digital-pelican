@@ -108,7 +108,6 @@ document.addEventListener("DOMContentLoaded", function() {
     anioDesdeInput.value = "";
     anioHastaInput.value = "";
 
-    // encabezadoSpinner.style.display = "block";
     encabezadoDiv.style.display = "none";
     
     recargarSinParametros();
@@ -141,7 +140,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   cambiarDatosButton.addEventListener("click", (thisEvent) => {
-    // encabezadoSpinner.style.display = "none";
     encabezadoDiv.style.display = "block";
     replyConsulta();
   });
