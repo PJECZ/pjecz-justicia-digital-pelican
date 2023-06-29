@@ -44,16 +44,16 @@
 {% if articles %}
 <section id="indices">
   <div class="container pt-4 pb-2">
-  {% for article in articles_page.object_list %}
-  <div class="card">
-    <div class="card-body">
-      <h3 class="card-title">
-        <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-      </h3>
-      <p class="card-text">{{ article.summary | striptags }}</p>
-    </div>
-  </div>
-  {% endfor %}
+    {% for article in articles_page.object_list %}
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">
+            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+          </h3>
+          <p class="card-text">{{ article.summary | striptags }}</p>
+        </div>
+      </div>
+    {% endfor %}
   </div>
 </section>
 {% else %}

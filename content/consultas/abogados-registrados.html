@@ -7,12 +7,12 @@
     <meta name="javascripts" content="consultas-api-url.js,consultas-abogados-registrados.js" />
     <meta name="save_as" content="abogados-registrados/index.html" />
   </head>
-  <body>
+  <body class="m-5">
     <!-- Cabecera -->
     <div class="mt-3 mb-3"></div>
-    <p class="mb-5 border-bottom">Consultar las y los abogados registrados en el Poder Judicial del Estado de Coahuila de Zaragoza.</p>
+    <p class="m-5 border-bottom">Consultar las y los abogados registrados en el Poder Judicial del Estado de Coahuila de Zaragoza.</p>
     <!-- Formulario -->
-    <div id="abogadosRegistradosFormCard" class="card">
+    <div id="abogadosRegistradosFormCard" class="card m-5">
       <div class="card-body">
         <div id="abogadosRegistradosFormSpinner" class="text-center">
           <div class="spinner-border" role="status">
@@ -37,9 +37,22 @@
       </div>
     </div>
     <!-- Tabla -->
-    <div id="abogadosRegistradosTableCard" class="card" style="display: none">
+    <div id="abogadosRegistradosTableCard" class="card m-5" style="display: none">
       <div class="card-header">
-        <h5 id="abogadosRegistradosTableTitle" class="card-title mb-0">Abogados registrados</h5>
+        <div class="row">
+          <h5 id="abogadosRegistradosTableTitle" class="card-title mb-0">Abogados registrados</h5>
+          <!-- Titulo -->
+          <div class="col-6">
+            <div id="encabezadoSpinner" class="text-center">
+              <div class="spinner-border" role="status">
+                <span class="sr-only">Cargando...</span>
+              </div>
+            </div>
+            <div id="encabezadoDiv" style="display: none">
+              <button id="cambiarDatosButton" class="btn btn-warning btn-sm"> Cambiar datos</button>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-body">
         <div id="abogadosRegistradosTableSpinner" class="text-center">

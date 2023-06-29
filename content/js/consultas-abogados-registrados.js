@@ -5,6 +5,8 @@
 // - consultas-api-url.js
 //
 
+// Definir URL sin parámetros
+const actualUrl = window.location.href.split("?")[0];
 // Definir elementos del DOM
 const abogadosRegistradosFormCard = document.getElementById("abogadosRegistradosFormCard");
 const abogadosRegistradosFormSpinner = document.getElementById("abogadosRegistradosFormSpinner");
@@ -17,9 +19,13 @@ const nombreInput = document.getElementById("nombreInput");
 const anioDesdeInput = document.getElementById("anioDesdeInput");
 const anioHastaInput = document.getElementById("anioHastaInput");
 const consultarButton = document.getElementById("consultarButton");
+const encabezadoSpinner = document.getElementById("encabezadoSpinner");
+const encabezadoDiv = document.getElementById("encabezadoDiv");
+const cambiarDatosButton = document.getElementById("cambiarDatosButton");
 
 // Consultar los abogados registrados para llenar la tabla
 function consultarAbogadosRegistrados(nombre, anioDesde, anioHasta) {
+  const expedienteSearch = document.getElementById("expedienteSearch").value;
   abogadosRegistradosTableSpinner.style.display = "block";
   if (nombre == null) {
     nombre = "";
@@ -43,6 +49,7 @@ function consultarAbogadosRegistrados(nombre, anioDesde, anioHasta) {
         nombre: nombre,
         anio_desde: anioDesde,
         anio_hasta: anioHasta,
+        expediente: expedienteSearch,
       },
       type: "GET",
       dataType: "json",
@@ -80,13 +87,31 @@ function consultarAbogadosRegistrados(nombre, anioDesde, anioHasta) {
   abogadosRegistradosTableSpinner.style.display = "none";
 }
 
+// Recargar la pagina esta página sin parámetros
+function recargarSinParametros() {
+  window.location.href = actualUrl;
+}
+
 // Recargar la pagina con los parametros del formulario
 function recargarConParametros() {
-  const actualUrl = window.location.href.split("?")[0];
+  // const actualUrl = window.location.href.split("?")[0];
   const elNombre = nombreInput.value;
   const elAnioDesde = anioDesdeInput.value;
   const elAnioHasta = anioHastaInput.value;
   window.location.href = actualUrl + "?nombre=" + elNombre + "&anio_desde=" + elAnioDesde + "&anio_hasta=" + elAnioHasta;
+}
+
+// Limpiar los valores del formulario y regresar a consultar
+function replyConsulta(){
+  nombreInput.value = "";
+  anioDesdeInput.value = "";
+  anioHastaInput.value = "";
+
+  encabezadoSpinner.style.display = "block";
+  encabezadoDiv.style.display = "none";
+  abogadosRegistradosTableCard.style.display = "block";
+  
+  recargarSinParametros();
 }
 
 //
@@ -114,3 +139,11 @@ if (nombre != null || anioDesde != null || anioHasta != null) {
     recargarConParametros();
   });
 }
+
+cambiarDatosButton.addEventListener("click", (thisEvent) => {
+  encabezadoSpinner.style.display = "none";
+  encabezadoDiv.style.display = "block";
+  abogadosRegistradosTableCard.style.display = "none";
+
+  replyConsulta();
+});
